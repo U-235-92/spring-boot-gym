@@ -9,8 +9,8 @@
 		<version>1.0.0</version>
 	</parent>
 
-	<artifactId>spring-boot-dynamic-simple-web-app</artifactId>
-	<name>spring-boot-dynamic-simple-web-app</name>
+	<artifactId>spring-boot-template-dynamic-simple-web-app</artifactId>
+	<name>spring-boot-template-dynamic-simple-web-app</name>
 
 	<dependencies>
 		<dependency>

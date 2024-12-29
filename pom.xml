@@ -18,9 +18,11 @@
 	<name>spring-boot-gym</name>
 
 	<modules>
-		<module>spring-boot-dynamic-simple-web-app</module>
-		<module>spring-boot-products-service-web-app</module>
 		<module>spring-boot-simple-web-app</module>
+		<module>spring-boot-template-dynamic-simple-web-app</module>
+		<module>spring-boot-template-products-service-web-app</module>
+		<module>spring-boot-web-scope-example</module>
+		<module>spring-boot-simple-rest-web-service-example</module>
 	</modules>
 
 	<properties>
