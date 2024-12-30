@@ -23,6 +23,10 @@
 		<module>spring-boot-template-products-service-web-app</module>
 		<module>spring-boot-web-scope-example</module>
 		<module>spring-boot-simple-rest-web-service-example</module>
+		<module>spring-boot-rest-endpoint-payment-service</module>
+		<module>spring-boot-rest-endpoint-openfeign-service</module>
+		<module>spring-boot-rest-endpoint-resttemplate-service</module>
+		<module>spring-boot-rest-endpoint-webclient-service</module>
 	</modules>
 
 	<properties>
