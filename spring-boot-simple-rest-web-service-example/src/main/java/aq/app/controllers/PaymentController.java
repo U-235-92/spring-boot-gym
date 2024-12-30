@@ -42,7 +42,7 @@ public class PaymentController {
 				.body(paymentDetails);
 	}
 	
-	@GetMapping("/payment1")
+	@GetMapping("/payment-and-handle-exception-by-controller")
 	public ResponseEntity<?> makePaymentByHandleExceptionByController() {
 		try {
 			PaymentDetails paymentDetails = paymentService.processPayment();
@@ -57,8 +57,8 @@ public class PaymentController {
 		}
 	}
 	
-	@GetMapping("/payment2")
-	public ResponseEntity<?> makePaymentByHandleExceptionByRestControllerAdvice() {
+	@GetMapping("/payment-and-handle-exception-by-advice")
+	public ResponseEntity<PaymentDetails> makePaymentByHandleExceptionByRestControllerAdvice() {
 		PaymentDetails paymentDetails = paymentService.processPayment();
 		return ResponseEntity
 				.status(HttpStatus.ACCEPTED)
