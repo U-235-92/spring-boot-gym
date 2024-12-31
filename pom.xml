@@ -28,6 +28,7 @@
 		<module>spring-boot-rest-endpoint-resttemplate-service</module>
 		<module>spring-boot-rest-endpoint-webclient-service</module>
 		<module>spring-boot-data-jdbc-template</module>
+		<module>spring-boot-transaction-web-service</module>
 	</modules>
 
 	<properties>
