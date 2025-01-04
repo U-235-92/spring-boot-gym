@@ -30,6 +30,7 @@
 		<module>spring-boot-data-jdbc-template</module>
 		<module>spring-boot-transaction-web-service</module>
 		<module>spring-boot-starter-data-jdbc</module>
+		<module>spring-boot-taco-cloud</module>
 	</modules>
 
 	<properties>
