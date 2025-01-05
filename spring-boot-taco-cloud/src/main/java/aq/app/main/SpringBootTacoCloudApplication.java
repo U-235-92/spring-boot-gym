@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = "aq.app.controllers")
+@ComponentScan(basePackages = {"aq.app.controllers", "aq.app.converters"})
 public class SpringBootTacoCloudApplication {
 
 	public static void main(String[] args) {
