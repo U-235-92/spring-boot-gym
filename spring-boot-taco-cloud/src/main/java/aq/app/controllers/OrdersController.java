@@ -1,7 +1,6 @@
 package aq.app.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +11,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import aq.app.models.TacoOrder;
-import aq.app.repositories.OrderRepository;
+import aq.app.repositories.JdbcDataOrderRepository;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 
@@ -23,8 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 public class OrdersController {
 
 	@Autowired
-	@Qualifier("JdbcOrderRepositoryImpl")
-	private OrderRepository orderRepository;
+	private JdbcDataOrderRepository orderRepository;
 	
 	@GetMapping("/current")
 	public String orderForm() {

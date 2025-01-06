@@ -1,10 +1,10 @@
 package aq.app.controllers;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -18,7 +18,7 @@ import aq.app.models.Ingredient;
 import aq.app.models.Ingredient.Type;
 import aq.app.models.Taco;
 import aq.app.models.TacoOrder;
-import aq.app.repositories.IngredientRepository;
+import aq.app.repositories.JdbcDataIngredientRepository;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 
@@ -29,12 +29,12 @@ import lombok.extern.slf4j.Slf4j;
 public class DesignTacoController {
 
 	@Autowired 
-	@Qualifier("JdbcIngredientRepositoryImpl")
-	private IngredientRepository ingredientRepository;
+	private JdbcDataIngredientRepository ingredientRepository;
 	
 	@ModelAttribute
 	public void addIngredientsToModel(Model model) {
-		List<Ingredient> ingredients = ingredientRepository.findAll();
+		List<Ingredient> ingredients = new ArrayList<>();
+		ingredientRepository.findAll().forEach(ingredient -> ingredients.add(ingredient));
 		Type[] types = Ingredient.Type.values();
 		Arrays.stream(types).forEach(type -> model.addAttribute(type.name().toLowerCase(), filterByType(ingredients, type)));
 		log.info("<<<Added ingredients to model>>>");
