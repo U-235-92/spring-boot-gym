@@ -1,4 +1,4 @@
-package aq.app.repositories;
+package aq.app.repositories.jdbc_data;
 
 import org.springframework.data.repository.CrudRepository;
 

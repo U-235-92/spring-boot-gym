@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import aq.app.models.Ingredient;
 import aq.app.models.Ingredient.Type;
+import aq.app.repositories.jpa_data.JpaDataIngredientRepository;
 import aq.app.models.Taco;
 import aq.app.models.TacoOrder;
-import aq.app.repositories.JdbcDataIngredientRepository;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 
@@ -29,7 +29,7 @@ import lombok.extern.slf4j.Slf4j;
 public class DesignTacoController {
 
 	@Autowired 
-	private JdbcDataIngredientRepository ingredientRepository;
+	private JpaDataIngredientRepository ingredientRepository;
 	
 	@ModelAttribute
 	public void addIngredientsToModel(Model model) {
@@ -67,9 +67,9 @@ public class DesignTacoController {
 	
 	@PostMapping
 	public String processTaco(@Valid Taco taco, Errors errors, @ModelAttribute TacoOrder tacoOrder) {
-		log.info("<<<Called POST method of DesignTacoController>>>");
 		if(errors.hasErrors())
 			return "design";
+		log.info("<<<Called POST method of DesignTacoController>>>");
 		tacoOrder.addTaco(taco);
 		log.info("Processing taco: " + taco);
 		return "redirect:/orders/current";

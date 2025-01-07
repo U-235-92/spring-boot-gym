@@ -5,13 +5,13 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
 import aq.app.models.Ingredient;
-import aq.app.repositories.JdbcDataIngredientRepository;
+import aq.app.repositories.jpa_data.JpaDataIngredientRepository;
 
 @Component
 public class IngredientByIdConverter implements Converter<String, Ingredient> {
 
 	@Autowired
-	private JdbcDataIngredientRepository ingredientRepository;
+	private JpaDataIngredientRepository ingredientRepository;
 
 	@Override
 	public Ingredient convert(String ingredientID) {

@@ -1,4 +1,4 @@
-package aq.app.repositories;
+package aq.app.repositories.jdbc_template;
 
 import aq.app.models.TacoOrder;
 

@@ -1,4 +1,4 @@
-package aq.app.repositories;
+package aq.app.repositories.jdbc_template;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
