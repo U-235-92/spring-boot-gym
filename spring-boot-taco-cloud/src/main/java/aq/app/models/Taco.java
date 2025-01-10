@@ -14,6 +14,7 @@ import lombok.Data;
 
 @Data
 @Entity
+//@RestResource(path = "tacos", rel = "tacos")
 public class Taco {
 
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)
