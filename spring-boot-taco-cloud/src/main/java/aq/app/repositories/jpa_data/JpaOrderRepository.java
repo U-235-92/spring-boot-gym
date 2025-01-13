@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import aq.app.models.TacoOrder;
 
-public interface JpaDataOrderRepository extends CrudRepository<TacoOrder, Long>{
+public interface JpaOrderRepository extends CrudRepository<TacoOrder, Long>{
 
 }

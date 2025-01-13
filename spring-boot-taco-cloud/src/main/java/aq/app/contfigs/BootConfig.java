@@ -12,7 +12,7 @@ import aq.app.models.Ingredient;
 import aq.app.models.Ingredient.Type;
 import aq.app.models.Taco;
 import aq.app.models.User;
-import aq.app.repositories.jpa_data.JpaDataIngredientRepository;
+import aq.app.repositories.jpa_data.JpaIngredientRepository;
 import aq.app.repositories.jpa_data.JpaTacoRepository;
 import aq.app.repositories.jpa_data.JpaUserRepository;
 
@@ -22,7 +22,7 @@ public class BootConfig {
 //	Load data after spring boot ran
 	@Bean
 	@Order(1)
-	CommandLineRunner ingredientLoader(JpaDataIngredientRepository ingredientRepository) { // ApplicationRunner
+	CommandLineRunner ingredientLoader(JpaIngredientRepository ingredientRepository) { // ApplicationRunner
 		return args -> {
 			ingredientRepository.save(new Ingredient("FLTO", "Flour Tortilla", Type.WRAP));
 			ingredientRepository.save(new Ingredient("COTO", "Corn Tortilla", Type.WRAP));
@@ -50,7 +50,7 @@ public class BootConfig {
 
 	@Bean 
 	@Order(3)
-	CommandLineRunner tacoLoader(JpaTacoRepository tacoRepository, JpaDataIngredientRepository ingredientRepository) {
+	CommandLineRunner tacoLoader(JpaTacoRepository tacoRepository, JpaIngredientRepository ingredientRepository) {
 		return args -> {
 			Taco taco1 = new Taco(); 
 			taco1.setName("Carnivore"); 

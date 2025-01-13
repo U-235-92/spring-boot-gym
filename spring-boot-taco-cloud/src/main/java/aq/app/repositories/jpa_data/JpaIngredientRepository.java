@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import aq.app.models.Ingredient;
 
-public interface JpaDataIngredientRepository extends CrudRepository<Ingredient, String> {
+public interface JpaIngredientRepository extends CrudRepository<Ingredient, String> {
 
 }

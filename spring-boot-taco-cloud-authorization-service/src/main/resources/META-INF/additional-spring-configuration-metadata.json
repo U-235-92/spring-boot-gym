@@ -1,0 +1,27 @@
+{"properties": [
+  {
+    "name": "aq.app.clientPort",
+    "type": "java.lang.Integer",
+    "description": "A port of client service"
+  },
+  {
+    "name": "aq.app.clientId",
+    "type": "java.lang.String",
+    "description": "A name of client service (It's like a user name)"
+  },
+  {
+    "name": "aq.app.redirectUri",
+    "type": "java.lang.String",
+    "description": "Redirect URI of client service"
+  },
+  {
+    "name": "aq.app.clientSecret",
+    "type": "java.lang.String",
+    "description": "A password of client service (It's like a user's password)"
+  },
+  {
+    "name": "aq.app.issuerUrl",
+    "type": "java.lang.String",
+    "description": "Authorization service url"
+  }
+]}

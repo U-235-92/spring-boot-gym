@@ -3,6 +3,7 @@ package aq.app.contfigs;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -49,9 +50,17 @@ public class SecurityConfig {
 				.authorizeHttpRequests(authorization -> 
 						authorization.requestMatchers(HttpMethod.GET, "/design", "/orders", "/orders/**").hasAnyRole("USER"))
 				.authorizeHttpRequests(authorization -> 
+						authorization.requestMatchers(HttpMethod.GET, "/api/ingredients/**").authenticated())
+				.authorizeHttpRequests(authorization -> 
+						authorization.requestMatchers(HttpMethod.POST, "/api/ingredients/**").hasAuthority("SCOPE_writeIngredients"))
+				.authorizeHttpRequests(authorization -> 
+						authorization.requestMatchers(HttpMethod.DELETE, "/api/ingredients/**").hasAuthority("SCOPE_deleteIngredients"))
+				.authorizeHttpRequests(authorization -> 
 						authorization.requestMatchers("/", "/**").permitAll())
+				.oauth2ResourceServer(customizer -> customizer.jwt(Customizer.withDefaults()))
+				.httpBasic(configurer -> Customizer.withDefaults())
 				.formLogin(login -> login.loginPage("/login").defaultSuccessUrl("/design"))
-				.logout(logout -> logout.clearAuthentication(true).invalidateHttpSession(true).logoutSuccessUrl("/"))
+				.logout(logout -> logout.clearAuthentication(true).invalidateHttpSession(true).deleteCookies("JSESSIONID").logoutSuccessUrl("/"))
 //				.csrf(csrf -> csrf.disable()) //disable csrf to able post/put etc. methods work (as alternative you could add th:action=@{/path} to enable auto generated csrf. It recommendation works if Thymeleaf enabled
 				.build();
 	}

@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import aq.app.models.Ingredient;
 import aq.app.models.Ingredient.Type;
-import aq.app.repositories.jpa_data.JpaDataIngredientRepository;
+import aq.app.repositories.jpa_data.JpaIngredientRepository;
 import aq.app.models.Taco;
 import aq.app.models.TacoOrder;
 import jakarta.validation.Valid;
@@ -29,7 +29,7 @@ import lombok.extern.slf4j.Slf4j;
 public class DesignTacoController {
 
 	@Autowired 
-	private JpaDataIngredientRepository ingredientRepository;
+	private JpaIngredientRepository ingredientRepository;
 	
 	@ModelAttribute
 	public void addIngredientsToModel(Model model) {

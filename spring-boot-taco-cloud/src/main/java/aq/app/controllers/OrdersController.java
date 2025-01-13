@@ -23,7 +23,7 @@ import org.springframework.web.bind.support.SessionStatus;
 
 import aq.app.models.TacoOrder;
 import aq.app.models.User;
-import aq.app.repositories.jpa_data.JpaDataOrderRepository;
+import aq.app.repositories.jpa_data.JpaOrderRepository;
 import aq.app.repositories.jpa_data.JpaUserRepository;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
@@ -35,7 +35,7 @@ import lombok.extern.slf4j.Slf4j;
 public class OrdersController {
 
 	@Autowired
-	private JpaDataOrderRepository orderRepository;
+	private JpaOrderRepository orderRepository;
 	@Autowired 
 	private JpaUserRepository userRepository;
 	
