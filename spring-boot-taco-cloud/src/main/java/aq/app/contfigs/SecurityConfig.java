@@ -56,12 +56,12 @@ public class SecurityConfig {
 				.authorizeHttpRequests(authorization -> 
 						authorization.requestMatchers(HttpMethod.DELETE, "/api/ingredients/**").hasAuthority("SCOPE_deleteIngredients"))
 				.authorizeHttpRequests(authorization -> 
-						authorization.requestMatchers("/", "/**").permitAll())
+						authorization.requestMatchers("/", "/**", "/api/msg/**").permitAll())
 				.oauth2ResourceServer(customizer -> customizer.jwt(Customizer.withDefaults()))
 				.httpBasic(configurer -> Customizer.withDefaults())
 				.formLogin(login -> login.loginPage("/login").defaultSuccessUrl("/design"))
 				.logout(logout -> logout.clearAuthentication(true).invalidateHttpSession(true).deleteCookies("JSESSIONID").logoutSuccessUrl("/"))
-//				.csrf(csrf -> csrf.disable()) //disable csrf to able post/put etc. methods work (as alternative you could add th:action=@{/path} to enable auto generated csrf. It recommendation works if Thymeleaf enabled
+				.csrf(csrf -> csrf.disable()) //disable csrf to able post/put etc. methods work (as alternative you could add th:action=@{/path} to enable auto generated csrf. It recommendation works if Thymeleaf enabled. It's safe to disable csrf if your's' app doesn't work in browser (rest only).
 				.build();
 	}
 }
