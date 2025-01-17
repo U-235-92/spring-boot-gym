@@ -1,4 +1,4 @@
-package aq.app.contfigs;
+package aq.app.configs;
 
 import java.util.Arrays;
 

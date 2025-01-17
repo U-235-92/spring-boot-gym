@@ -1,4 +1,4 @@
-package aq.app.contfigs;
+package aq.app.configs;
 
 import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.core.Exchange;

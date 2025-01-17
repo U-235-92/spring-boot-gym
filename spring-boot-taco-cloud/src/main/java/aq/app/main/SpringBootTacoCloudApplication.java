@@ -5,15 +5,21 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.integration.annotation.IntegrationComponentScan;
 
-import aq.app.contfigs.BootConfig;
-import aq.app.contfigs.RabbitSenderConfiguration;
-import aq.app.contfigs.SecurityConfig;
+import aq.app.configs.BootConfig;
+import aq.app.configs.FileWriterIntegrationConfig;
+import aq.app.configs.RabbitSenderConfiguration;
+import aq.app.configs.SecurityConfig;
 
 @SpringBootApplication
 @EntityScan(basePackages = "aq.app.models")
-@ComponentScan(basePackages = {"aq.app.controllers", "aq.app.converters", "aq.app.repositories", "aq.app.msg_services.*"})
+@ComponentScan(basePackages = {"aq.app.controllers", 
+		"aq.app.converters", 
+		"aq.app.repositories", 
+		"aq.app.msg_services.*"})
 @EnableJpaRepositories(basePackages = "aq.app.repositories.jpa_data")
+@IntegrationComponentScan(basePackages = {"aq.app.integration"})
 public class SpringBootTacoCloudApplication {
 
 	public static void main(String[] args) {
@@ -21,6 +27,7 @@ public class SpringBootTacoCloudApplication {
 					SpringBootTacoCloudApplication.class,
 					SecurityConfig.class,
 					BootConfig.class,
-					RabbitSenderConfiguration.class}, args);
+					RabbitSenderConfiguration.class,
+					FileWriterIntegrationConfig.class}, args);
 	}
 }

@@ -1,4 +1,4 @@
-package aq.app.contfigs;
+package aq.app.configs;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -56,7 +56,7 @@ public class SecurityConfig {
 				.authorizeHttpRequests(authorization -> 
 						authorization.requestMatchers(HttpMethod.DELETE, "/api/ingredients/**").hasAuthority("SCOPE_deleteIngredients"))
 				.authorizeHttpRequests(authorization -> 
-						authorization.requestMatchers("/", "/**", "/api/msg/**").permitAll())
+						authorization.requestMatchers("/", "/**", "/api/msg/**", "/api/integration/**").permitAll())
 				.oauth2ResourceServer(customizer -> customizer.jwt(Customizer.withDefaults()))
 				.httpBasic(configurer -> Customizer.withDefaults())
 				.formLogin(login -> login.loginPage("/login").defaultSuccessUrl("/design"))

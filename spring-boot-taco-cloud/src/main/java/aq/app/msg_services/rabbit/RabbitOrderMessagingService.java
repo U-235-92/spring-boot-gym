@@ -7,7 +7,7 @@ import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import aq.app.contfigs.RabbitSenderConfiguration;
+import aq.app.configs.RabbitSenderConfiguration;
 import aq.app.models.TacoOrder;
 import aq.app.msg_services.OrderMessagingService;
 import lombok.RequiredArgsConstructor;
