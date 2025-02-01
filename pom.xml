@@ -33,6 +33,7 @@
 		<module>spring-boot-taco-cloud</module>
 		<module>spring-boot-taco-cloud-authorization-service</module>
 		<module>spring-boot-taco-cloud-client-service</module>
+		<module>spring-boot-simple-reactive</module>
 	</modules>
 
 	<properties>
